@@ -9,7 +9,8 @@ LazyData: true
 URL: https://github.com/gaborcsardi/prompt
 BugReports: https://github.com/gaborcsardi/prompt/issues
 RoxygenNote: 5.0.1
-Suggests: 
+Suggests:
+    memuse,
     testthat
 Imports:
     clisymbols
