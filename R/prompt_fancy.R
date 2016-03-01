@@ -22,6 +22,8 @@ prompt_fancy <- function(expr, value, ok, visible) {
 
   status <- if (ok) green(symbol$tick) else red(symbol$cross)
 
+  parr <- parr_status()
+
   mem <- paste0(memory_usage(), " ")
 
   pkg <- if (using_devtools()) paste0(devtools_package(), " ") else ""
@@ -31,6 +33,7 @@ prompt_fancy <- function(expr, value, ok, visible) {
   paste0(
     "\n",
     status, " ",
+    parr,
     grey(mem),
     blue(pkg),
     grey(git), "\n",
@@ -58,3 +61,8 @@ git_info <- function() {
 }
 
 grey <- crayon::make_style("darkgrey")
+
+parr_status <- function() {
+  n <- parr::cluster()$num_workers
+  if (n != 0) green(paste0(symbol$radio_on, " ", n, " ")) else ""
+}
