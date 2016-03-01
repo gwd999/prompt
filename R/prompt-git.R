@@ -7,6 +7,7 @@
 #'
 #' @param ... Unused.
 #'
+#' @family example prompts
 #' @export
 #' @examples
 #' \dontrun{

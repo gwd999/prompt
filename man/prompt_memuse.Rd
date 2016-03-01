@@ -13,7 +13,8 @@ prompt_memuse(...)
 Example prompt that shows the current memory usage of the R process
 }
 \seealso{
-Other example.prompts: \code{\link{prompt_error}},
+Other example.prompts: \code{\link{prompt_devtools}},
+  \code{\link{prompt_error}}, \code{\link{prompt_git}},
   \code{\link{prompt_runtime}}
 }
 
