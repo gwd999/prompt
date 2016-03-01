@@ -13,4 +13,5 @@ Suggests:
     memuse,
     testthat
 Imports:
-    clisymbols
+    clisymbols,
+    methods
