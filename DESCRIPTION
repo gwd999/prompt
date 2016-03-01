@@ -15,4 +15,5 @@ Suggests:
     testthat
 Imports:
     clisymbols,
+    crayon,
     methods

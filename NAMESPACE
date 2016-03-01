@@ -2,8 +2,12 @@
 
 export(prompt_devtools)
 export(prompt_error)
+export(prompt_fancy)
 export(prompt_git)
 export(prompt_memuse)
 export(prompt_runtime)
 export(set_prompt)
 importFrom(clisymbols,symbol)
+importFrom(crayon,blue)
+importFrom(crayon,green)
+importFrom(crayon,red)
