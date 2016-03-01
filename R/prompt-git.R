@@ -35,6 +35,8 @@ git_branch <- function() {
   if (attr(status, "status") != 0) "master" else status
 }
 
+#' @importFrom clisymbols symbol
+
 git_arrows <- function() {
   res <- ""
 
@@ -44,8 +46,8 @@ git_arrows <- function() {
   status <- git("rev-list --left-right --count HEAD...@'{u}'")
   if (attr(status, "status") != 0) return (res)
   lr <- scan(text = status, quiet = TRUE)
-  if (lr[2] != 0) res <- paste0(res, "⇣")
-  if (lr[1] != 0) res <- paste0(res, "⇡")
+  if (lr[2] != 0) res <- paste0(res, symbol$arrow_down)
+  if (lr[1] != 0) res <- paste0(res, symbol$arrow_up)
 
   if (res != "") paste0(" ", res) else res
 }
