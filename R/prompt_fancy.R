@@ -24,7 +24,7 @@ prompt_fancy <- function(expr, value, ok, visible) {
 
   mem <- paste0(memory_usage(), " ")
 
-  pkg <- if (using_devtools()) paste0(devtools_package(), " ")
+  pkg <- if (using_devtools()) paste0(devtools_package(), " ") else ""
 
   git <- git_info()
 
