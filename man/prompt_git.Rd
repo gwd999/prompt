@@ -6,6 +6,9 @@
 \usage{
 prompt_git(...)
 }
+\arguments{
+\item{...}{Unused.}
+}
 \description{
 It shows the current branch, whether there are
 commits to push or pull to the default remote,

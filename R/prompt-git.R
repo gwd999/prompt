@@ -5,6 +5,8 @@
 #' commits to push or pull to the default remote,
 #' and whether the working directory is dirty.
 #'
+#' @param ... Unused.
+#'
 #' @export
 #' @examples
 #' \dontrun{
@@ -71,7 +73,7 @@ git <- function(args, quiet = TRUE, path = ".") {
     error = function(x) x
   )
 
-  if (is(result, "error")) {
+  if (methods::is(result, "error")) {
     result <- structure("", status = 1)
   } else {
     attr(result, "status") <- attr(result, "status") %||% 0

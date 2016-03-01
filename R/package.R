@@ -37,6 +37,13 @@ update_prompt <- function(...) {
   if (is.string(mine)) options(prompt = mine)
 }
 
+#' Set the prompt
+#'
+#' @param value A character string for a static prompt, or
+#'   a function that is called after the evaluation every expression
+#'   typed at the R prompt. The function should always return a
+#'   character scalar.
+#'
 #' @export
 
 set_prompt <- function(value) {
