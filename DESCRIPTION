@@ -18,3 +18,5 @@ Imports:
     clisymbols,
     crayon,
     methods
+Remotes:
+    gaborcsardi/parr
