@@ -4,8 +4,8 @@
 > Dynamic R Prompt
 
 [![Project Status: WIP - Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](http://www.repostatus.org/badges/latest/wip.svg)](http://www.repostatus.org/#wip)
-[![Linux Build Status](https://travis-ci.org//prompt.svg?branch=master)](https://travis-ci.org//prompt)
-[![Windows Build status](https://ci.appveyor.com/api/projects/status/github//prompt?svg=true)](https://ci.appveyor.com/project//prompt)
+[![Linux Build Status](https://travis-ci.org/gaborcsardi/prompt.svg?branch=master)](https://travis-ci.org/gaborcsardi/prompt)
+[![Windows Build status](https://ci.appveyor.com/api/projects/status/github/gaborcsardi/prompt?svg=true)](https://ci.appveyor.com/project/gaborcsardi/prompt)
 [![](http://www.r-pkg.org/badges/version/prompt)](http://www.r-pkg.org/pkg/prompt)
 [![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/prompt)](http://www.r-pkg.org/pkg/prompt)
 
