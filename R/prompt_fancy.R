@@ -43,6 +43,7 @@ prompt_fancy <- function(expr, value, ok, visible) {
 }
 
 memory_usage <- function() {
+  if (!requireNamespace("memuse", quietly = TRUE)) return("")
   current <- memuse::Sys.procmem()[[1]]
   size <- memuse::size(current)
   unit <- memuse::unit(current)
@@ -51,6 +52,7 @@ memory_usage <- function() {
 }
 
 git_info <- function() {
+  if (attr(git("--version"), "status") != 0) return("")
   if (!is_git_dir()) return("")
 
   paste0(
@@ -63,6 +65,7 @@ git_info <- function() {
 grey <- crayon::make_style("darkgrey")
 
 parr_status <- function() {
+  if (!requireNamespace("parr", quietly = TRUE)) return("")
   n <- parr::cluster()$num_workers
   if (n != 0) green(paste0(symbol$radio_on, " ", n, " ")) else ""
 }
