@@ -25,7 +25,7 @@ examples. The prompt on the screenshot has:
 ## Installation
 
 ```r
-devtools::install_github("/prompt")
+devtools::install_github("gaborcsardi/prompt")
 ```
 
 ## Usage
