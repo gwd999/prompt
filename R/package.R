@@ -49,4 +49,5 @@ update_prompt <- function(...) {
 set_prompt <- function(value) {
   stopifnot(is.function(value) || is.string(value))
   assign("prompt", value, envir = prompt_env)
+  update_prompt(NULL, NULL, TRUE, FALSE)
 }
