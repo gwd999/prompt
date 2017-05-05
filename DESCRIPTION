@@ -11,9 +11,12 @@ BugReports: https://github.com/gaborcsardi/prompt/issues
 RoxygenNote: 5.0.1
 Suggests:
     devtools,
+    httrmock,
     memuse,
     testthat
 Imports:
     clisymbols,
     crayon,
     methods
+Remotes:
+    gaborcsardi/httrmock
