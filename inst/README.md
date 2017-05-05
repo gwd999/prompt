@@ -14,8 +14,6 @@
 Set the R prompt dynamically, from a function. The package contains some
 examples. The prompt on the screenshot has:
 * The status of the last command (success or failure).
-* The status of the parallel worker processes used by
-  [parr](https://github.com/gaborcsardi/parr).
 * The amount of memory allocated by the current R process.
 * The name of the R package being developed using
   [devtools](https://github.com/hadley/devtools).

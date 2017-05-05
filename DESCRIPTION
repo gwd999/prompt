@@ -12,11 +12,8 @@ RoxygenNote: 5.0.1
 Suggests:
     devtools,
     memuse,
-    parr,
     testthat
 Imports:
     clisymbols,
     crayon,
     methods
-Remotes:
-    gaborcsardi/parr
