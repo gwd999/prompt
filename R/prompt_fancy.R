@@ -1,4 +1,6 @@
 
+grey <- crayon::make_style("grey85")
+
 #' A fancy prompt, showing probably too much information
 #'
 #' It also uses color, on terminals that support it.
@@ -60,8 +62,6 @@ git_info <- function() {
     git_arrows()
   )
 }
-
-grey <- crayon::make_style("darkgrey")
 
 httrmock_status <- function() {
   if (! "httrmock" %in% loadedNamespaces()) return("")
