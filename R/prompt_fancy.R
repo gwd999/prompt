@@ -1,5 +1,7 @@
 
-grey <- crayon::make_style("grey85")
+grey <- function() {
+  crayon::make_style("grey70")
+}
 
 #' A fancy prompt, showing probably too much information
 #'
@@ -33,9 +35,9 @@ prompt_fancy <- function(expr, value, ok, visible) {
   paste0(
     "\n",
     status, " ",
-    grey(mem),
+    grey()(mem),
     blue(pkg),
-    grey(git),
+    grey()(git),
     httrmock_status(),
     "\n",
     symbol$pointer,
@@ -78,6 +80,6 @@ httrmock_status <- function() {
 
   paste0(
     " ", symb, " ",
-    grey(ct)
+    grey()(ct)
   )
 }
