@@ -68,7 +68,7 @@ git_info <- function() {
 httrmock_status <- function() {
   if (! "httrmock" %in% loadedNamespaces()) return("")
 
-  mode <- httrmock::ct_mode()
+  mode <- httrmock::ct_get_mode()
   ct <- httrmock::pwt()
 
   symb <- switch(
