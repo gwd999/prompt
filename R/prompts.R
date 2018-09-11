@@ -49,6 +49,7 @@ prompt_error_hook <- function() {
 
   orig <- prompt_env$error
   if (!is.null(orig) && is.function(orig)) orig()
+  if (!is.null(orig) && is.call(orig)) eval(orig)
 }
 
 
