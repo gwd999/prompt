@@ -22,8 +22,10 @@ examples. The prompt on the screenshot has:
 
 ## Installation
 
+Once on CRAN, install the package with:
+
 ```r
-devtools::install_github("gaborcsardi/prompt")
+install.packages("prompt")
 ```
 
 ## Usage
