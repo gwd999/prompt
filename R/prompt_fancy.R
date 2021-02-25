@@ -26,9 +26,9 @@ prompt_fancy <- function(expr, value, ok, visible) {
 
   status <- if (ok) green(symbol$tick) else red(symbol$cross)
 
-  mem <- paste0(memory_usage(), " ")
+  mem <- memory_usage()
 
-  pkg <- if (using_devtools()) paste0(devtools_package(), " ") else ""
+  pkg <- paste(devtools_packages(), collapse = "+")
 
   git <- git_info()
 
@@ -36,7 +36,9 @@ prompt_fancy <- function(expr, value, ok, visible) {
     "\n",
     status, " ",
     grey()(mem),
+    " / ",
     blue(pkg),
+    if (nzchar(pkg)) " / ",
     grey()(git),
     "\n",
     symbol$pointer,

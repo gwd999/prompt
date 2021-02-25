@@ -8,37 +8,28 @@
 #'
 #' @family example prompts
 #' @export
+#' @examples
+#' prompt_devtools()
 
 prompt_devtools <- function(...) {
-
-  if (!using_devtools()) {
-    "> "
-
-  } else if (!is_git_dir()) {
-    paste0(
-      devtools_package(),
-      " > "
-    )
-
-  } else {
-    paste0(
-      devtools_package(),
-      " ",
-      git_branch(),
-      git_dirty(),
-      git_arrows(),
-      " > "
-    )
-  }
-}
-
-using_devtools <- function() {
-  "devtools_shims" %in% search()
-}
-
-devtools_package <- function() {
-  tryCatch(
-    devtools::as.package(".")$package,
-    error = function(e) "<unknown pkg>"
+  pdev <- paste(devtools_packages(), collapse = "+")
+  pgit <- git_info()
+  paste0(
+    pdev,
+    if (nzchar(pdev) && nzchar(pgit)) " / ",
+    pgit,
+    " > "
   )
+}
+
+#' @export
+#' @rdname prompt_devtools
+
+devtools_packages <- function() {
+  if (!"devtools_shims" %in% search()) return(character())
+  packages <- vapply(
+    loadedNamespaces(),
+    function(x) !is.null(pkgload::dev_meta(x)), logical(1)
+  )
+  names(packages)[packages]
 }

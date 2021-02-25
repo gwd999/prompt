@@ -2,9 +2,12 @@
 % Please edit documentation in R/devtools.R
 \name{prompt_devtools}
 \alias{prompt_devtools}
+\alias{devtools_packages}
 \title{Example prompt that shows the package being developed with devtools}
 \usage{
 prompt_devtools(...)
+
+devtools_packages()
 }
 \arguments{
 \item{...}{Ignored.}

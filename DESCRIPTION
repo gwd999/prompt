@@ -12,7 +12,7 @@ Imports:
     crayon,
     methods
 Suggests:
-    devtools,
+    pkgload,
     memuse (>= 4.0.0),
     testthat
 Encoding: UTF-8
