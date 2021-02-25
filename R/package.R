@@ -54,6 +54,7 @@ set_prompt <- function(value) {
   update_prompt(NULL, NULL, TRUE, FALSE)
 }
 
+if (getRversion() < "4.0") globalVariables("globalCallingHandlers")
 
 #' @rdname set_prompt
 #' @export
