@@ -38,7 +38,6 @@ prompt_fancy <- function(expr, value, ok, visible) {
     grey()(mem),
     blue(pkg),
     grey()(git),
-    httrmock_status(),
     "\n",
     symbol$pointer,
     " "
@@ -62,24 +61,5 @@ git_info <- function() {
     git_branch(),
     git_dirty(),
     git_arrows()
-  )
-}
-
-httrmock_status <- function() {
-  if (! "httrmock" %in% loadedNamespaces()) return("")
-
-  mode <- httrmock::ct_get_mode()
-  ct <- httrmock::pwt()
-
-  symb <- switch(
-    mode,
-    nomock = "\u25a0",
-    mock = crayon::green("\u25b6"),
-    record = crayon::red("\u25cf")
-  )
-
-  paste0(
-    " ", symb, " ",
-    grey()(ct)
   )
 }

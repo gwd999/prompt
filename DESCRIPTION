@@ -13,11 +13,8 @@ Imports:
     methods
 Suggests:
     devtools,
-    httrmock,
     memuse (>= 4.0.0),
     testthat
-Remotes:
-    gaborcsardi/httrmock
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
