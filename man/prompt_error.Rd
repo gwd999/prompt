@@ -19,8 +19,11 @@ prompt_error(expr, value, ok, visible)
 A prompt that shows the status (OK or error) of the last expression
 }
 \seealso{
-Other example prompts: \code{\link{prompt_devtools}},
-  \code{\link{prompt_fancy}}, \code{\link{prompt_git}},
-  \code{\link{prompt_memuse}}, \code{\link{prompt_runtime}}
+Other example prompts: 
+\code{\link{prompt_devtools}()},
+\code{\link{prompt_fancy}()},
+\code{\link{prompt_git}()},
+\code{\link{prompt_memuse}()},
+\code{\link{prompt_runtime}()}
 }
 \concept{example prompts}

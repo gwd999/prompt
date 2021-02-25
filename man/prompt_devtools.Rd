@@ -14,8 +14,11 @@ If git is installed and the current directory is part of a git tree,
 then also shows all information from \code{\link{prompt_git}}.
 }
 \seealso{
-Other example prompts: \code{\link{prompt_error}},
-  \code{\link{prompt_fancy}}, \code{\link{prompt_git}},
-  \code{\link{prompt_memuse}}, \code{\link{prompt_runtime}}
+Other example prompts: 
+\code{\link{prompt_error}()},
+\code{\link{prompt_fancy}()},
+\code{\link{prompt_git}()},
+\code{\link{prompt_memuse}()},
+\code{\link{prompt_runtime}()}
 }
 \concept{example prompts}
