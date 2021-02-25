@@ -16,6 +16,9 @@ devtools_packages()
 If git is installed and the current directory is part of a git tree,
 then also shows all information from \code{\link{prompt_git}}.
 }
+\examples{
+prompt_devtools()
+}
 \seealso{
 Other example prompts: 
 \code{\link{prompt_error}()},

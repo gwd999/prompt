@@ -44,15 +44,6 @@ prompt_error <- function(expr, value, ok, visible) {
   }
 }
 
-prompt_error_hook <- function() {
-  update_prompt(expr = NA, value = NA, ok = FALSE, visible = NA)
-
-  orig <- prompt_env$error
-  if (!is.null(orig) && is.function(orig)) orig()
-  if (!is.null(orig) && is.call(orig)) eval(orig)
-}
-
-
 prompt_memuse_factory <- function() {
   size <- 0
   unit <- "MiB"
