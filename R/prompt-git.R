@@ -31,14 +31,14 @@ is_git_dir <- function() {
   attr(status, "status") == 0
 }
 
-## It fails before the first commit, so we just return "master" there
+## It fails before the first commit, so we just return "main" there
 
 #' @export
 #' @rdname prompt_git
 
 git_branch <- function() {
   status <- git("rev-parse --abbrev-ref HEAD")
-  if (attr(status, "status") != 0) "master" else status
+  if (attr(status, "status") != 0) "main" else status
 }
 
 #' @importFrom clisymbols symbol
