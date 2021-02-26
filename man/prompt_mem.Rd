@@ -29,7 +29,18 @@ memory_usage()
 \description{
 Example prompt that shows the current memory usage of the R process
 }
+\details{
+`prompt_mem()` is a simple example prompt that shows the physical memory
+allocated by the current process.
+
+`memory_usage()` is a utility function that shows memory information
+about the current R process and the system. You can use it to create a
+custom prompt.
+}
 \examples{
+\dontshow{if (ps::ps_is_supported()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+cat(prompt_mem())
+\dontshow{\}) # examplesIf}
 \dontshow{if (ps::ps_is_supported()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 memory_usage()
 \dontshow{\}) # examplesIf}
@@ -39,7 +50,6 @@ Other example prompts:
 \code{\link{prompt_devtools}()},
 \code{\link{prompt_error}()},
 \code{\link{prompt_fancy}()},
-\code{\link{prompt_git}()},
-\code{\link{prompt_runtime}()}
+\code{\link{prompt_git}()}
 }
 \concept{example prompts}
