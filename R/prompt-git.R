@@ -122,7 +122,7 @@ git_remote_status <- function() {
 git_dirty <- function() {
   status <- git("status --porcelain --ignore-submodules -u")
   if (attr(status, "status") != 0) return("") # nocov
-  if (length(status) > 0 && nzchar(status)) "*" else ""
+  if (length(status) > 0) "*" else ""
 }
 
 git <- function(args, quiet = TRUE, path = ".") {
