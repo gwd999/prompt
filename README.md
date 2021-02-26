@@ -38,12 +38,18 @@ install.packages("prompt")
 
 ## Usage
 
-Use the `prompt_fancy` prompt, as on the screenshot, or create your own.
+Use one of the pre-defined prompts, as on the screenshots, or create your own.
 You can set the prompt in your `.Rprofile`. Maybe you only want to do this
 in interactive mode:
 
 ```r
-if (interactive()) prompt::set_prompt(prompt_fancy)
+if (interactive()) prompt::set_prompt(prompt::prompt_fancy)
+```
+
+or the powerline prompt:
+
+```r
+if (interactive()) prompt::set_prompt(prompt::make_prompt_powerline())
 ```
 
 ## License
