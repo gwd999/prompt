@@ -2,19 +2,19 @@
 % Please edit documentation in R/prompt-powerline.R
 \name{make_prompt_powerline}
 \alias{make_prompt_powerline}
-\title{This is a powerline-like prompt}
+\title{This is a Powerline-like prompt}
 \usage{
 make_prompt_powerline(
-  color1 = "#404040",
-  color2 = "#0055d4",
-  color3 = "gold4",
-  color4 = "#7d26cd"
+  col_mem = "#404040",
+  col_path = "#0055d4",
+  col_pkg = "gold4",
+  col_git = "#7d26cd"
 )
 }
 \arguments{
-\item{color1, color2, color3, color4}{Background colors for the sections:
-allocated memory, working directory, devtools loaded package(s),
-git info.}
+\item{col_mem, col_path, col_pkg, col_git}{Background colors for the
+sections: allocated memory, working directory, devtools loaded
+package(s), git info.}
 }
 \value{
 `make_prompt_powerline()` returns a function that you can
@@ -22,5 +22,7 @@ use with [set_prompt()].
 }
 \description{
 It is inspired by the <https://github.com/powerline/powerline>
-project.
+project. This prompt uses some Unicode glyphs that work best
+with the fonts specifically modified for Powerline:
+https://github.com/powerline/fonts
 }

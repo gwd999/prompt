@@ -1,30 +1,32 @@
 
-#' This is a powerline-like prompt
+#' This is a Powerline-like prompt
 #'
 #' It is inspired by the <https://github.com/powerline/powerline>
-#' project.
+#' project. This prompt uses some Unicode glyphs that work best
+#' with the fonts specifically modified for Powerline:
+#' https://github.com/powerline/fonts
 #'
-#' @param color1,color2,color3,color4 Background colors for the sections:
-#' allocated memory, working directory, devtools loaded package(s),
-#' git info.
+#' @param col_mem,col_path,col_pkg,col_git Background colors for the
+#' sections: allocated memory, working directory, devtools loaded
+#' package(s), git info.
 #' @return `make_prompt_powerline()` returns a function that you can
 #' use with [set_prompt()].
 #'
 #' @export
 
-make_prompt_powerline <- function(color1 = "#404040",
-                                  color2 = "#0055d4",
-                                  color3 = "gold4",
-                                  color4 = "#7d26cd") {
+make_prompt_powerline <- function(col_mem = "#404040",
+                                  col_path = "#0055d4",
+                                  col_pkg = "gold4",
+                                  col_git= "#7d26cd") {
 
-  bg1 <- cli::make_ansi_style(color1, bg = TRUE)
-  bg2 <- cli::make_ansi_style(color2, bg = TRUE)
-  bg3 <- cli::make_ansi_style(color3, bg = TRUE)
-  bg4 <- cli::make_ansi_style(color4, bg = TRUE)
-  fg1 <- cli::make_ansi_style(color1)
-  fg2 <- cli::make_ansi_style(color2)
-  fg3 <- cli::make_ansi_style(color3)
-  fg4 <- cli::make_ansi_style(color4)
+  bg1 <- cli::make_ansi_style(col_mem, bg = TRUE)
+  bg2 <- cli::make_ansi_style(col_path, bg = TRUE)
+  bg3 <- cli::make_ansi_style(col_pkg, bg = TRUE)
+  bg4 <- cli::make_ansi_style(col_git, bg = TRUE)
+  fg1 <- cli::make_ansi_style(col_mem)
+  fg2 <- cli::make_ansi_style(col_path)
+  fg3 <- cli::make_ansi_style(col_pkg)
+  fg4 <- cli::make_ansi_style(col_git)
   bgr <- cli::make_ansi_style("#b90e0a", bg = TRUE)
   fgr <- cli::make_ansi_style("#b90e0a")
   bgg <- cli::make_ansi_style("green4", bg = TRUE)
