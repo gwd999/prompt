@@ -104,7 +104,7 @@ git_remote_status <- function() {
   if (attr(status, "status") != 0) return(c(NA_integer_, NA_integer_))
 
   status <- git("rev-list --left-right --count HEAD...@'{u}'")
-  if (attr(status, "status") != 0) return (c(NA_integer_, NA_integer_))
+  if (attr(status, "status") != 0) return (c(NA_integer_, NA_integer_)) # nocov
   scan(text = status, quiet = TRUE)
 }
 
@@ -121,7 +121,7 @@ git_remote_status <- function() {
 
 git_dirty <- function() {
   status <- git("status --porcelain --ignore-submodules -u")
-  if (attr(status, "status") != 0) return("")
+  if (attr(status, "status") != 0) return("") # nocov
   if (length(status) > 0 && nzchar(status)) "*" else ""
 }
 
