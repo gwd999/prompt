@@ -138,7 +138,7 @@ git <- function(args, quiet = TRUE, path = ".") {
     error = function(x) x
   )
 
-  if (methods::is(result, "error")) {
+  if (inherits(result, "error")) {
     result <- structure("", status = 1)
   } else {
     attr(result, "status") <- attr(result, "status") %||% 0
