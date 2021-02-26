@@ -45,9 +45,9 @@ set_prompt <- function(value) {
   assign("prompt", value, envir = prompt_env)
   if (is.na(prompt_env$task_id)) {
     assign("task_id", addTaskCallback(update_callback), envir = prompt_env)
-    if (getRversion() >= "4.0") {
-      globalCallingHandlers(
-        error = function(err) update_callback(NA, NA, FALSE, NA)
+    if (getRversion() >= "4.0" && Sys.getenv("PROMPT_NO_GLOBAL") != "true") {
+      globalCallingHandlers(                                     # nocov
+        error = function(err) update_callback(NA, NA, FALSE, NA) # nocov
       )
     }
   }  
