@@ -1,23 +1,4 @@
 
-#' A prompt that shows the status (OK or error) of the last expression
-#'
-#' @param expr Evaluated expression.
-#' @param value Its value.
-#' @param ok Whether the evaluation succeeded.
-#' @param visible Whether the result is visible.
-#'
-#' @importFrom cli symbol
-#' @family example prompts
-#' @export
-
-prompt_error <- function(expr, value, ok, visible) {
-  if (ok) {
-    paste0(symbol$tick, " ", symbol$pointer, " ")
-  } else {
-    paste0(symbol$cross, " ", symbol$pointer, " ")
-  }
-}
-
 #' Example prompt that shows the current memory usage of the R process
 #'
 #' @details
