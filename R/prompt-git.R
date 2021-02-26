@@ -1,18 +1,19 @@
 
 #' An example 'git' prompt
 #'
-#' It shows the current branch, whether there are
-#' commits to push or pull to the default remote,
-#' and whether the working directory is dirty.
+#' @details
+#' `prompt_git()` is a prompt with information about the git repository
+#' in the current working directory. It shows the current branch, whether
+#' there are commits to push or pull to the default remote, and whether
+#' the working directory is dirty.
 #'
 #' @param ... Unused.
+#' @return `prompt_git()` returns the prompt as a string.
 #'
 #' @family example prompts
 #' @export
 #' @examples
-#' \dontrun{
-#'   set_prompt(prompt_git)
-#' }
+#' cat(prompt_git())
 
 prompt_git <- function(...) {
 
@@ -26,6 +27,18 @@ prompt_git <- function(...) {
   )
 }
 
+#' @details
+#' `is_git_dir()` checks whether the working directory is in a git tree.
+#' If git is not installed, then it always returns `FALSE`.
+#'
+#' @return
+#' `is_git_dir()` returns a logical scalar.
+#'
+#' @export
+#' @rdname prompt_git
+#' @examples
+#' is_git_dir()
+
 is_git_dir <- function() {
   status <- git("status")
   attr(status, "status") == 0
@@ -33,34 +46,76 @@ is_git_dir <- function() {
 
 ## It fails before the first commit, so we just return "main" there
 
+#' @details
+#' `git_branch()` returns the name of the current branch.
+#'
+#' @return
+#' `git_branch()` returns a string. If the repository has no commits, then
+#' it returns `"main"`. Note that if git is not available, or fails for
+#' any reason, it will also return `"main"`, so you might want to call
+#' `is_git_dir()` as well.
 #' @export
 #' @rdname prompt_git
 
 git_branch <- function() {
   status <- git("rev-parse --abbrev-ref HEAD")
-  if (attr(status, "status") != 0) "main" else status
+  if (attr(status, "status") != 0) "main" else c(status)
 }
 
+#' @details
+#' `git_arrows()` checks the status of the local tree compared to the
+#' configured remote.
+#'
+#' @return
+#' `git_arrows()` returns a string that has a down arrow if the remote
+#' has extra commits, and a down arrow if the local tree has extra commits
+#' compared to the remote. Or both arrows for diverged branches. If it is
+#' not the empty string then it adds a leading space character.
+#'
 #' @importFrom clisymbols symbol
 #' @export
 #' @rdname prompt_git
 
 git_arrows <- function() {
   res <- ""
-
-  status <- git("rev-parse --abbrev-ref @'{u}'")
-  if (attr(status, "status") != 0) return(res)
-
-  status <- git("rev-list --left-right --count HEAD...@'{u}'")
-  if (attr(status, "status") != 0) return (res)
-  lr <- scan(text = status, quiet = TRUE)
-  if (lr[2] != 0) res <- paste0(res, symbol$arrow_down)
-  if (lr[1] != 0) res <- paste0(res, symbol$arrow_up)
-
+  lr <- git_remote_status()
+  if (!is.na(lr[2]) && lr[2] != 0) res <- paste0(res, symbol$arrow_down)
+  if (!is.na(lr[1]) && lr[1] != 0) res <- paste0(res, symbol$arrow_up)
   if (res != "") paste0(" ", res) else res
 }
 
+#' @details
+#' `git_remote_status()` checks the status of the local tree, compared to
+#' a configured remote.
+#'
+#' @return
+#' `git_remote_status()` returns a numeric vector of length two. The first
+#' number is the number of extra commits in the local tree. The second
+#' number is the number of extra commits in the remote. If there is no
+#' remote, or git errors, it returns a vector of two `NA`s.
+#'
+#' @export
+#' @rdname prompt_git
 
+git_remote_status <- function() {
+  res <- ""
+
+  status <- git("rev-parse --abbrev-ref @'{u}'")
+  if (attr(status, "status") != 0) return(c(NA_integer_, NA_integer_))
+
+  status <- git("rev-list --left-right --count HEAD...@'{u}'")
+  if (attr(status, "status") != 0) return (c(NA_integer_, NA_integer_))
+  scan(text = status, quiet = TRUE)
+}
+
+#' @details
+#' `git_dirty()` checks if the local tree has uncommitted changes.
+#' If there are, it returns `"*"`. Note that it also returns `"*"` on a
+#' git error, so you might want to use `is_git_dir()` as well.
+#'
+#' @return
+#' `git_dirty()` returns a character string, `"*"` or `""`.
+#'
 #' @export
 #' @rdname prompt_git
 
