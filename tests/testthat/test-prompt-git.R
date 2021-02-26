@@ -26,7 +26,7 @@ test_that("git_branch", {
   expect_equal(git_branch(), "main")
   cat("foo\n", file = "foo")
   gert::git_add("foo")
-  gert::git_commit("Initial commit")
+  gert::git_commit("Initial commit", author = "gcs <gcs@gmail.com>")
   expect_equal(git_branch(), gert::git_info()$shorthand)
 })
 
@@ -45,17 +45,15 @@ test_that("git_arrows", {
 })
 
 test_that("git_remote_status", {
-  skip_on_cran()
-  if (Sys.which("git") == "") skip("no git")
   withr::local_dir(remote <- withr::local_tempdir())
-  git("init --bare")
+  gert::git_init(bare = TRUE)
 
   withr::local_dir(withr::local_tempdir())
   gert::git_init()
   expect_equal(git_branch(), "main")
   cat("foo\n", file = "foo")
   gert::git_add("foo")
-  gert::git_commit("Initial commit")
+  gert::git_commit("Initial commit", author = "gcs <gcs@gmail.com>")
   expect_equal(git_remote_status(), c(NA_integer_, NA_integer_))
 
   gert::git_remote_add(remote)
@@ -64,7 +62,7 @@ test_that("git_remote_status", {
 
   cat("foobar\n", append = TRUE, file = "foo")
   gert::git_add("foo")
-  gert::git_commit("Second commit")
+  gert::git_commit("Second commit", author = "gcs <gcs@gmail.com>")
   expect_equal(git_remote_status(), c(1, 0))
 
   gert::git_push(verbose = FALSE)
@@ -73,7 +71,7 @@ test_that("git_remote_status", {
 
   cat("qwerty\n", append = TRUE, file = "foo")
   gert::git_add("foo")
-  gert::git_commit("Third commit")
+  gert::git_commit("Third commit", author = "gcs <gcs@gmail.com>")
   expect_equal(git_remote_status(), c(1, 1))
 })
 
@@ -82,13 +80,13 @@ test_that("git_dirty", {
   gert::git_init()
   cat("foo\n", file = "foo")
   gert::git_add("foo")
-  gert::git_commit("Initial commit")
+  gert::git_commit("Initial commit", author = "gcs <gcs@gmail.com>")
   expect_equal(git_dirty(), "")
   cat("foobar\n", append = TRUE, file = "foo")
   expect_equal(git_dirty(), "*")
   gert::git_add("foo")
   expect_equal(git_dirty(), "*")
-  gert::git_commit("second")
+  gert::git_commit("second", author = "gcs <gcs@gmail.com>")
   expect_equal(git_dirty(), "")
 })
 
