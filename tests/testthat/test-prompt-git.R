@@ -48,7 +48,7 @@ test_that("git_remote_status", {
   skip_on_cran()
   if (Sys.which("git") == "") skip("no git")
   withr::local_dir(remote <- withr::local_tempdir())
-  system("git init --bare")
+  git("init --bare")
 
   withr::local_dir(withr::local_tempdir())
   gert::git_init()
