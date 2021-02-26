@@ -13,7 +13,7 @@ examples.
 
 ## Examples
 
-![](https://user-images.githubusercontent.com/660288/109298654-3b181a80-7834-11eb-985e-a8f58ff553c7.png)
+<img width="440" src="https://user-images.githubusercontent.com/660288/109298654-3b181a80-7834-11eb-985e-a8f58ff553c7.png">
 
 This prompt has
 * The status of the last command (success or failure).
