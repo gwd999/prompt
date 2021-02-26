@@ -26,7 +26,7 @@ prompt_fancy <- function(expr, value, ok, visible) {
 
   status <- if (ok) green(symbol$tick) else red(symbol$cross)
 
-  mem <- memory_usage()
+  mem <- memory_usage()$formatted
 
   pkg <- paste(devtools_packages(), collapse = "+")
 
