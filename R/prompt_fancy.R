@@ -32,13 +32,15 @@ prompt_fancy <- function(expr, value, ok, visible) {
 
   git <- git_info()
 
+  emo <- has_emoji()
+
   paste0(
     "\n",
     status, " ",
     grey()(mem),
-    " / ",
+    if (nchar(pkg)) if (emo) " \U1F4E6 " else " / ",
     blue(pkg),
-    if (nzchar(pkg)) " / ",
+    if (nzchar(git)) if (emo) " \ue0a0 " else " / ",
     grey()(git),
     "\n",
     symbol$pointer,
@@ -55,4 +57,8 @@ git_info <- function() {
     git_dirty(),
     git_arrows()
   )
+}
+
+has_emoji <- function() {
+  l10n_info()$`UTF-8`
 }
