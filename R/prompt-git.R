@@ -125,6 +125,12 @@ git_dirty <- function() {
   if (length(status) > 0) "*" else ""
 }
 
+git_has_stash <- function() {
+  out <- git("stash list")
+  if (attr(out, "status") != 0) return("FALSE") # nocov
+  length(out) > 0
+}
+
 git <- function(args, quiet = TRUE, path = ".") {
   full <- paste0(shQuote(check_git_path()), " ", paste(args, collapse = ""))
   if (!quiet) {

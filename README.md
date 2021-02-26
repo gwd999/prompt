@@ -8,16 +8,25 @@
 [![R build status](https://github.com/gaborcsardi/prompt/workflows/R-CMD-check/badge.svg)](https://github.com/gaborcsardi/prompt/actions)
 <!-- badges: end -->
 
+Set the R prompt dynamically, from a function. The package contains some
+examples.
+
+## Examples
+
 ![](https://user-images.githubusercontent.com/660288/109298654-3b181a80-7834-11eb-985e-a8f58ff553c7.png)
 
-Set the R prompt dynamically, from a function. The package contains some
-examples. The prompt on the screenshot has:
+This prompt has
 * The status of the last command (success or failure).
 * The amount of memory allocated by the current R process.
 * The name of the R package being developed using
   [devtools](https://github.com/r-lib/devtools).
 * Name of the active git branch.
 * State of the git working tree (needs pushes, pulls, and/or dirty).
+
+![](https://user-images.githubusercontent.com/660288/109363294-83632700-788c-11eb-897b-fa1e4a752a45.png)
+
+A [powerline](https://github.com/powerline/powerline) clone, that also
+shows the current working directory.
 
 ## Installation
 
