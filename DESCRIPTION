@@ -8,8 +8,7 @@ License: MIT + file LICENSE
 URL: https://github.com/gaborcsardi/prompt
 BugReports: https://github.com/gaborcsardi/prompt/issues
 Imports:
-    clisymbols,
-    crayon,
+    cli,
     methods
 Suggests:
     pkgload,

@@ -72,7 +72,7 @@ git_branch <- function() {
 #' compared to the remote. Or both arrows for diverged branches. If it is
 #' not the empty string then it adds a leading space character.
 #'
-#' @importFrom clisymbols symbol
+#' @importFrom cli symbol
 #' @export
 #' @rdname prompt_git
 

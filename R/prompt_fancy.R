@@ -1,7 +1,11 @@
 
-grey <- function() {
-  crayon::make_style("grey70")
-}
+grey <- local({
+  fn <- NULL
+  function() {
+    if (is.null(fn)) fn <<- cli::make_ansi_style("grey70")
+    fn
+  }
+})
 
 #' A fancy prompt, showing probably too much information
 #'
@@ -19,12 +23,12 @@ grey <- function() {
 #' @param visible Whether the result is visible.
 #'
 #' @family example prompts
-#' @importFrom crayon green red blue
+#' @importFrom cli col_green col_red col_blue
 #' @export
 
 prompt_fancy <- function(expr, value, ok, visible) {
 
-  status <- if (ok) green(symbol$tick) else red(symbol$cross)
+  status <- if (ok) col_green(symbol$tick) else col_red(symbol$cross)
 
   mem <- memory_usage()$formatted
 
@@ -39,7 +43,7 @@ prompt_fancy <- function(expr, value, ok, visible) {
     status, " ",
     grey()(mem),
     if (nchar(pkg)) if (emo) " \U1F4E6 " else " / ",
-    blue(pkg),
+    col_blue(pkg),
     if (nzchar(git)) if (emo) " \ue0a0 " else " / ",
     grey()(git),
     "\n",

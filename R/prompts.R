@@ -6,7 +6,7 @@
 #' @param ok Whether the evaluation succeeded.
 #' @param visible Whether the result is visible.
 #'
-#' @importFrom clisymbols symbol
+#' @importFrom cli symbol
 #' @family example prompts
 #' @export
 
