@@ -120,8 +120,9 @@ git_remote_status <- function() {
 #' @rdname prompt_git
 
 git_dirty <- function() {
-  status <- git("diff --no-ext-diff --quiet --exit-code")
-  if (attr(status, "status") != 0) "*" else ""
+  status <- git("status --porcelain --ignore-submodules -u")
+  if (attr(status, "status") != 0) return("")
+  if (length(status) > 0 && nzchar(status)) "*" else ""
 }
 
 git <- function(args, quiet = TRUE, path = ".") {
