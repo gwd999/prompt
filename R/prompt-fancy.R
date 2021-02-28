@@ -13,6 +13,7 @@ grey <- local({
 #' Is shows: \itemize{
 #'   \item Status of last command.
 #'   \item Memory usage of the R process.
+#'   \item Load average of the machine.
 #'   \item Package being developed using devtools, if any.
 #'   \item Git branch and state of the working tree if within a git tree.
 #' }
@@ -32,6 +33,10 @@ prompt_fancy <- function(expr, value, ok, visible) {
 
   mem <- memory_usage()$formatted
 
+  load <- ps::ps_loadavg()
+  dot <- if (cli::is_utf8_output()) "\u00b7" else "-"
+  loadstr <- paste(round(load, 1), collapse = dot)
+
   pkg <- paste(devtools_packages(), collapse = "+")
 
   git <- git_info()
@@ -42,6 +47,8 @@ prompt_fancy <- function(expr, value, ok, visible) {
     "\n",
     status, " ",
     grey()(mem),
+    if (emo) " \U1F4BB " else " / ",
+    grey()(loadstr),
     if (nchar(pkg)) if (emo) " \U1F4E6 " else " / ",
     col_blue(pkg),
     if (nzchar(git)) if (emo) " \ue0a0 " else " / ",
