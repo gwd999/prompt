@@ -80,6 +80,7 @@ Other example prompts:
 \code{\link{prompt_devtools}()},
 \code{\link{prompt_fancy}()},
 \code{\link{prompt_mem}()},
+\code{\link{prompt_runtime}()},
 \code{\link{prompt_status}()}
 }
 \concept{example prompts}
