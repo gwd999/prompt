@@ -76,6 +76,7 @@ is_git_dir()
 }
 \seealso{
 Other example prompts: 
+\code{\link{new_prompt_powerline}()},
 \code{\link{prompt_devtools}()},
 \code{\link{prompt_fancy}()},
 \code{\link{prompt_mem}()},

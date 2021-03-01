@@ -12,6 +12,12 @@ devtools_packages()
 \arguments{
 \item{...}{Ignored.}
 }
+\value{
+\code{prompt_devtools()} returns the prompt string.
+
+\code{devtools_packages()} returns the packages loaded by
+devtools/pkgload.
+}
 \description{
 If git is installed and the current directory is part of a git tree,
 then also shows all information from \code{\link{prompt_git}}.
@@ -21,6 +27,7 @@ prompt_devtools()
 }
 \seealso{
 Other example prompts: 
+\code{\link{new_prompt_powerline}()},
 \code{\link{prompt_fancy}()},
 \code{\link{prompt_git}()},
 \code{\link{prompt_mem}()},

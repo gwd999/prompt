@@ -5,6 +5,7 @@
 #' @param value Its value.
 #' @param ok Whether the evaluation succeeded.
 #' @param visible Whether the result is visible.
+#' @return `prompt_status()` returns the prompt string.
 #'
 #' @importFrom cli symbol
 #' @family example prompts

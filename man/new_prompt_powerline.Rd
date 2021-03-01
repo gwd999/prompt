@@ -38,3 +38,12 @@ with the fonts specifically modified for Powerline:
 https://github.com/powerline/fonts
 It also works best on consoles that support ANSI colors.
 }
+\seealso{
+Other example prompts: 
+\code{\link{prompt_devtools}()},
+\code{\link{prompt_fancy}()},
+\code{\link{prompt_git}()},
+\code{\link{prompt_mem}()},
+\code{\link{prompt_status}()}
+}
+\concept{example prompts}

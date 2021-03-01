@@ -24,6 +24,7 @@
 #' @return `make_prompt_powerline()` returns a function that you can
 #' use with [set_prompt()].
 #'
+#' @family example prompts
 #' @export
 
 new_prompt_powerline <- function(

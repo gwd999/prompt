@@ -15,6 +15,9 @@ prompt_fancy(expr, value, ok, visible)
 
 \item{visible}{Whether the result is visible.}
 }
+\value{
+\code{prompt_fancy()} returns the prompt string.
+}
 \description{
 It also uses color, on terminals that support it.
 Is shows: \itemize{
@@ -27,6 +30,7 @@ Is shows: \itemize{
 }
 \seealso{
 Other example prompts: 
+\code{\link{new_prompt_powerline}()},
 \code{\link{prompt_devtools}()},
 \code{\link{prompt_git}()},
 \code{\link{prompt_mem}()},

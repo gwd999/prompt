@@ -5,6 +5,7 @@
 #' then also shows all information from \code{\link{prompt_git}}.
 #'
 #' @param ... Ignored.
+#' @return `prompt_devtools()` returns the prompt string.
 #'
 #' @family example prompts
 #' @export
@@ -24,6 +25,8 @@ prompt_devtools <- function(...) {
 
 #' @export
 #' @rdname prompt_devtools
+#' @return `devtools_packages()` returns the packages loaded by
+#' devtools/pkgload.
 
 devtools_packages <- function() {
   if (!"devtools_shims" %in% search()) return(character())

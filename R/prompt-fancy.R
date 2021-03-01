@@ -22,6 +22,7 @@ grey <- local({
 #' @param value Its value.
 #' @param ok Whether the evaluation succeeded.
 #' @param visible Whether the result is visible.
+#' @return `prompt_fancy()` returns the prompt string.
 #'
 #' @family example prompts
 #' @importFrom cli col_green col_red col_blue
