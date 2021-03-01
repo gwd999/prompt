@@ -130,7 +130,8 @@ powerline_git <- function(expr, value, ok, visible) {
     if (git_dirty() == "*") "\u002a ",
     if (git_has_stash()) "\u2261 ",
     if (!is.na(remote[2]) && remote[2] > 0) paste0("\u21E3", remote[2], " "),
-    if (!is.na(remote[1]) && remote[1] > 0) paste0("\u21E1", remote[1], " ")
+    if (!is.na(remote[1]) && remote[1] > 0) paste0("\u21E1", remote[1], " "),
+    ""
   )
   paste0(" \ue0a0 ", git_branch(), " ", gitx, if (!nzchar(gitx)) " ")
 }
