@@ -46,6 +46,7 @@ test_that("git_arrows", {
 
 test_that("git_remote_status", {
   skip_on_cran()
+  skip_on_os("windows") # The file remote does not work...
   if (Sys.which("git") == "") skip("no git")
   withr::local_dir(remote <- withr::local_tempdir())
   git("init --bare")
