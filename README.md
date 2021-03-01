@@ -13,9 +13,9 @@ examples.
 
 ## Examples
 
-<img width="440" src="https://user-images.githubusercontent.com/660288/109298654-3b181a80-7834-11eb-985e-a8f58ff553c7.png">
+![](https://user-images.githubusercontent.com/660288/109492379-3305e800-7a8b-11eb-9311-8196b6383d9e.png)
 
-This prompt has
+This is `prompt_fancy()` and it has
 * The status of the last command (success or failure).
 * The amount of memory allocated by the current R process.
 * The name of the R package being developed using
@@ -23,10 +23,10 @@ This prompt has
 * Name of the active git branch.
 * State of the git working tree (needs pushes, pulls, and/or dirty).
 
-![](https://user-images.githubusercontent.com/660288/109363294-83632700-788c-11eb-897b-fa1e4a752a45.png)
+![](https://user-images.githubusercontent.com/660288/109492387-36996f00-7a8b-11eb-8d0e-a43eea797da2.png)
 
 A [powerline](https://github.com/powerline/powerline) clone, that also
-shows the current working directory.
+shows the system load average and the current working directory.
 
 ## Installation
 
@@ -49,7 +49,7 @@ if (interactive()) prompt::set_prompt(prompt::prompt_fancy)
 or the powerline prompt:
 
 ```r
-if (interactive()) prompt::set_prompt(prompt::make_prompt_powerline())
+if (interactive()) prompt::set_prompt(prompt::new_prompt_powerline())
 ```
 
 ## License

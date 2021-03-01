@@ -18,11 +18,11 @@ prompt_fancy(expr, value, ok, visible)
 \description{
 It also uses color, on terminals that support it.
 Is shows: \itemize{
-  \item Status of last command.
-  \item Memory usage of the R process.
-  \item Load average of the machine.
-  \item Package being developed using devtools, if any.
-  \item Git branch and state of the working tree if within a git tree.
+\item Status of last command.
+\item Memory usage of the R process.
+\item Load average of the machine.
+\item Package being developed using devtools, if any.
+\item Git branch and state of the working tree if within a git tree.
 }
 }
 \seealso{

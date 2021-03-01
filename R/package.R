@@ -7,12 +7,13 @@
 #' @name prompt
 NULL
 
-prompt_env <- new.env()
+prompt_env <- new.env(parent = emptyenv())
 prompt_env$prompt <- "> "
 prompt_env$task_id <- NA
 prompt_env$default_prompt <- prompt_env$prompt
 prompt_env$disabled_prompt <- NULL
 prompt_env$in_use <- TRUE
+prompt_env$colors <- new.env(parent = emptyenv())
 
 update_callback <- function(expr, value, ok, visible) {
   try(suppressWarnings(update_prompt(expr, value, ok, visible)))

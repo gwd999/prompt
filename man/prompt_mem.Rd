@@ -13,27 +13,29 @@ memory_usage()
 \item{...}{Ignored.}
 }
 \value{
-`prompt_mem()` returns the formatted prompt in a string.
+\code{prompt_mem()} returns the formatted prompt in a string.
 
-`memory_usage()` returns a list with entries:
-  * `bytes`: the number of bytes of memory the current process uses.
-    This is the 'Resident Set Size', see [ps::ps_memory_info()].
-  * `formatted`: string that formats `bytes` nicely, with the appropriate
-    unit.
-  * `total`: Total physical memory. See [ps::ps_system_memory()].
-  * `avail`: the memory that can be given instantly to processes
-     without the system going into swap. See [ps::ps_system_memory()].
-  * `percent`: Percentage of memory that is taken. See
-     [ps::ps_system_memory()].
+\code{memory_usage()} returns a list with entries:
+\itemize{
+\item \code{bytes}: the number of bytes of memory the current process uses.
+This is the 'Resident Set Size', see \code{\link[ps:ps_memory_info]{ps::ps_memory_info()}}.
+\item \code{formatted}: string that formats \code{bytes} nicely, with the appropriate
+unit.
+\item \code{total}: Total physical memory. See \code{\link[ps:ps_system_memory]{ps::ps_system_memory()}}.
+\item \code{avail}: the memory that can be given instantly to processes
+without the system going into swap. See \code{\link[ps:ps_system_memory]{ps::ps_system_memory()}}.
+\item \code{percent}: Percentage of memory that is taken. See
+\code{\link[ps:ps_system_memory]{ps::ps_system_memory()}}.
+}
 }
 \description{
 Example prompt that shows the current memory usage of the R process
 }
 \details{
-`prompt_mem()` is a simple example prompt that shows the physical memory
+\code{prompt_mem()} is a simple example prompt that shows the physical memory
 allocated by the current process.
 
-`memory_usage()` is a utility function that shows memory information
+\code{memory_usage()} is a utility function that shows memory information
 about the current R process and the system. You can use it to create a
 custom prompt.
 }
