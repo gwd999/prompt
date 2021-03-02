@@ -1,8 +1,8 @@
 Package: prompt
 Title: Dynamic R Prompt
 Version: 1.0.0
-Author: Gabor Csardi
-Maintainer: Gabor Csardi <csardi.gabor@gmail.com>
+Author: Gábor Csárdi
+Maintainer: Gábor Csárdi <csardi.gabor@gmail.com>
 Description: Set the R prompt dynamically, from a function.
 License: MIT + file LICENSE
 URL: https://github.com/gaborcsardi/prompt
