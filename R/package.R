@@ -32,6 +32,7 @@ update_prompt <- function(...) {
 #'   a function that is called after the evaluation every expression
 #'   typed at the R prompt. The function should always return a
 #'   character scalar.
+#' @return No return value, called for side effects.
 #'
 #' @details
 #' Function \code{update_prompt()} is used to replace the default \R
@@ -53,6 +54,8 @@ set_prompt <- function(value) {
     }
   }  
   update_prompt(NULL, NULL, TRUE, FALSE)
+
+  invisible()
 }
 
 if (getRversion() < "4.0") globalVariables("globalCallingHandlers")

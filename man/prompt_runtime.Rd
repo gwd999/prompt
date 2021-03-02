@@ -9,6 +9,10 @@ prompt_runtime(...)
 \arguments{
 \item{...}{Arguments, ignored.}
 }
+\value{
+The prompt.
+'
+}
 \description{
 A prompt that shows the CPU time used by the last top level expression
 }

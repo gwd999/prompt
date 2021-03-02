@@ -19,7 +19,8 @@ prompt_runtime_factory <- function() {
 #' A prompt that shows the CPU time used by the last top level expression
 #'
 #' @param ... Arguments, ignored.
-#'
+#' @return The prompt.
+#''
 #' @family example prompts
 #' @export
 
