@@ -12,8 +12,6 @@
 #'
 #' @family example prompts
 #' @export
-#' @examples
-#' cat(prompt_git())
 
 prompt_git <- function(...) {
 
@@ -36,8 +34,6 @@ prompt_git <- function(...) {
 #'
 #' @export
 #' @rdname prompt_git
-#' @examples
-#' is_git_dir()
 
 is_git_dir <- function() {
   status <- git("status")

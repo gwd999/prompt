@@ -70,10 +70,6 @@ a configured remote.
 If there are, it returns \code{"*"}. Note that it also returns \code{"*"} on a
 git error, so you might want to use \code{is_git_dir()} as well.
 }
-\examples{
-cat(prompt_git())
-is_git_dir()
-}
 \seealso{
 Other example prompts: 
 \code{\link{new_prompt_powerline}()},

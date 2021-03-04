@@ -9,8 +9,6 @@
 #'
 #' @family example prompts
 #' @export
-#' @examples
-#' prompt_devtools()
 
 prompt_devtools <- function(...) {
   pdev <- paste(devtools_packages(), collapse = "+")
