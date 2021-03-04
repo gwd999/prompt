@@ -20,6 +20,7 @@ test_that("is_git_dir", {
 })
 
 test_that("git_branch", {
+  if (Sys.which("git") == "") skip("no git")
   withr::local_dir(withr::local_tempdir())
   expect_equal(git_branch(), "main")
   gert::git_init()
@@ -79,6 +80,7 @@ test_that("git_remote_status", {
 })
 
 test_that("git_dirty", {
+  if (Sys.which("git") == "") skip("no git")
   withr::local_dir(withr::local_tempdir())
   gert::git_init()
   cat("foo\n", file = "foo")
