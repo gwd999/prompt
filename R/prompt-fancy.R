@@ -1,7 +1,11 @@
 
-grey <- function() {
-  crayon::make_style("grey70")
-}
+grey <- local({
+  fn <- NULL
+  function() {
+    if (is.null(fn)) fn <<- cli::make_ansi_style("grey70")
+    fn
+  }
+})
 
 #' A fancy prompt, showing probably too much information
 #'
@@ -9,6 +13,7 @@ grey <- function() {
 #' Is shows: \itemize{
 #'   \item Status of last command.
 #'   \item Memory usage of the R process.
+#'   \item Load average of the machine.
 #'   \item Package being developed using devtools, if any.
 #'   \item Git branch and state of the working tree if within a git tree.
 #' }
@@ -17,41 +22,42 @@ grey <- function() {
 #' @param value Its value.
 #' @param ok Whether the evaluation succeeded.
 #' @param visible Whether the result is visible.
+#' @return `prompt_fancy()` returns the prompt string.
 #'
 #' @family example prompts
-#' @importFrom crayon green red blue
+#' @importFrom cli col_green col_red col_blue
 #' @export
 
 prompt_fancy <- function(expr, value, ok, visible) {
 
-  status <- if (ok) green(symbol$tick) else red(symbol$cross)
+  status <- if (ok) col_green(symbol$tick) else col_red(symbol$cross)
 
-  mem <- paste0(memory_usage(), " ")
+  mem <- memory_usage()$formatted
 
-  pkg <- if (using_devtools()) paste0(devtools_package(), " ") else ""
+  load <- ps::ps_loadavg()
+  dot <- if (cli::is_utf8_output()) "\u00b7" else "-"
+  loadstr <- paste(round(load, 1), collapse = dot)
+
+  pkg <- paste(devtools_packages(), collapse = "+")
 
   git <- git_info()
+
+  emo <- has_emoji()
 
   paste0(
     "\n",
     status, " ",
     grey()(mem),
-    blue(pkg),
+    if (emo) " \U1F4BB " else " / ",
+    grey()(loadstr),
+    if (nchar(pkg)) if (emo) " \U1F4E6 " else " / ",
+    col_blue(pkg),
+    if (nzchar(git)) if (emo) " \ue0a0 " else " / ",
     grey()(git),
-    httrmock_status(),
     "\n",
     symbol$pointer,
     " "
   )
-}
-
-memory_usage <- function() {
-  if (!requireNamespace("memuse", quietly = TRUE)) return("")
-  current <- memuse::Sys.procmem()[[1]]
-  size <- memuse::mu.size(current)
-  unit <- memuse::mu.unit(current)
-
-  paste0(round(size, 1), " ", unit)
 }
 
 git_info <- function() {
@@ -65,21 +71,6 @@ git_info <- function() {
   )
 }
 
-httrmock_status <- function() {
-  if (! "httrmock" %in% loadedNamespaces()) return("")
-
-  mode <- httrmock::ct_get_mode()
-  ct <- httrmock::pwt()
-
-  symb <- switch(
-    mode,
-    nomock = "\u25a0",
-    mock = crayon::green("\u25b6"),
-    record = crayon::red("\u25cf")
-  )
-
-  paste0(
-    " ", symb, " ",
-    grey()(ct)
-  )
+has_emoji <- function() {
+  l10n_info()$`UTF-8`
 }
